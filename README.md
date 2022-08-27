@@ -1,5 +1,3 @@
-# joinup-client
-
 <!-- Improved compatibility of back to top link: See: https://github.com/joinup-organization/joinup-client/pull/73 -->
 
 <a name="readme-top"></a>
@@ -71,8 +69,8 @@
 
 ### Built With
 
-- [![React]][https://pt-br.reactjs.org/]
-- [![Ionic]][https://ionicframework.com/]
+- [React](https://pt-br.reactjs.org/)
+- [Ionic](https://ionicframework.com/)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -106,9 +104,9 @@ See the [open issues](https://github.com/joinup-organization/joinup-client/issue
 
 ## Contact
 
-Caio Rodrigues - [https://github.com/calvesrodrig](https://github.com/calvesrodrig)
-Carlos Henrique - [https://github.com/carloshenriquemarcianojunior](https://github.com/carloshenriquemarcianojunior)
-Gabriel Zecchi - [https://github.com/g-zecchi](https://github.com/g-zecchi)
+Caio Rodrigues - [https://github.com/calvesrodrig](https://github.com/calvesrodrig)<br>
+Carlos Henrique - [https://github.com/carloshenriquemarcianojunior](https://github.com/carloshenriquemarcianojunior)<br>
+Gabriel Zecchi - [https://github.com/g-zecchi](https://github.com/g-zecchi)<br>
 Murilo Leopoldino - [https://github.com/murilodpl](https://github.com/murilodpl)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
