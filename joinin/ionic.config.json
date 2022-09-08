@@ -1,7 +1,0 @@
-{
-  "name": "joinin",
-  "integrations": {
-    "capacitor": {}
-  },
-  "type": "react"
-}
