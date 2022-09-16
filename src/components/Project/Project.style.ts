@@ -4,9 +4,9 @@ import { Text } from '../../global.style'
 export const ProjectContainer = styled.div`
   display: flex;
   flex-direction: column;
-  border-top: 1px solid black;
   padding: 1.5rem 0;
   position: relative;
+  border-bottom: 1px solid #00000047;
 `
 
 export const TopContent = styled.div`

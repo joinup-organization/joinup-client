@@ -2,7 +2,7 @@ import React from 'react'
 import { SubTitle, TerciaryText } from '../../global.style'
 import { Button } from '../DefaultButton/DefaultButton.style'
 import { IProjectComponent } from './Project.model'
-import { Description, ProjectContainer, TopContent, ViewMoreButton } from './Project.style'
+import { Description, ProjectContainer, TopContent } from './Project.style'
 
 const Project = ({ name, enterpriseName, description, vacancies }: IProjectComponent) => {
   return (
@@ -10,8 +10,6 @@ const Project = ({ name, enterpriseName, description, vacancies }: IProjectCompo
           <TopContent>
             <SubTitle>{name}</SubTitle>
             <Button>Veja mais</Button>
-            <ViewMoreButton>Veja mais</ViewMoreButton>
-            {/* <IonButton>Veja mais</IonButton> */}
           </TopContent>
             <TerciaryText>{enterpriseName}</TerciaryText>
             <Description>{description}</Description>
