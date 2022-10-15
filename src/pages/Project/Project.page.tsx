@@ -9,6 +9,7 @@ import { getProject } from '../../services/project.service'
 import { BenefitsComponent, ProjectContainer, ProjectSubTitle, ProjectTitle, BenefitIcon } from './Project.style'
 import { homeOutline, fastFoodOutline, busOutline } from 'ionicons/icons'
 import VacancyComponent from '../../components/Vacancy/Vacancy.component'
+import { EnterpriseInline } from '../../components/EnterpriseInline/EnterpriseInline.component'
 
 const ProjectPage: React.FC<RouteComponentProps<{id: string}>> = ({ match, history }) => {
   const [project, setProject] = useState<IProject | null>(null)
@@ -33,6 +34,7 @@ const ProjectPage: React.FC<RouteComponentProps<{id: string}>> = ({ match, histo
   const projectPage = (
     <div>
       <ProjectTitle>{project?.name}</ProjectTitle>
+      {project?.enterprise ? <EnterpriseInline {...project.enterprise}/> : null}
       <ProjectSubTitle>Descrição</ProjectSubTitle>
       <Text>{project?.description}</Text>
       <ProjectSubTitle>Benefícios</ProjectSubTitle>

@@ -19,8 +19,7 @@ const Home = () => {
   }, [])
 
   const params = {
-    placeHolder: 'Busque aqui',
-    searchSuggestions: [{ key: 'java', value: 'javaaaa' }]
+    placeHolder: 'Busque aqui'
   }
 
   return (

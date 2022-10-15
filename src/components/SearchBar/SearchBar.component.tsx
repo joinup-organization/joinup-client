@@ -1,13 +1,12 @@
+import { IonIcon } from '@ionic/react'
 import React, { useState } from 'react'
-import { ISearchSuggestion } from './SearchBar.model'
-import { SearchBarContainer, SearchBox } from './SearchBar.style'
+import { SearchBarContainer, SearchBox, SearchButton } from './SearchBar.style'
+import { searchOutline } from 'ionicons/icons'
 
 const SearchBarComponent = ({
-  placeHolder,
-  searchSuggestions
+  placeHolder
 }: {
   placeHolder: string
-  searchSuggestions: ISearchSuggestion[]
 }) => {
   const [searchValue, setSearchValue] = useState<string>('')
 
@@ -15,13 +14,15 @@ const SearchBarComponent = ({
     <SearchBarContainer>
       <SearchBox
         placeholder={placeHolder}
-        data={searchSuggestions}
+        data={[]}
         type="text"
-        onSelect={(record) => console.log(record)}
+        onSelect={(record: any) => console.log(record)}
         onChange={(value: string) => setSearchValue(value)}
         clearOnSelect={true}
       />
-      <button onClick={() => console.log(searchValue)}>Search</button>
+      <SearchButton onClick={() => console.log(searchValue)}>
+        <IonIcon color='light' icon={searchOutline}/>
+      </SearchButton>
     </SearchBarContainer>
   )
 }

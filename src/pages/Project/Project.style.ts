@@ -14,6 +14,7 @@ export const ProjectContainer = styled.div`
 
 export const ProjectTitle = styled(MainTitle)`
     margin-top: 20px;
+    margin-bottom: 20px;
 `
 
 export const ProjectSubTitle = styled(SubTitle)`

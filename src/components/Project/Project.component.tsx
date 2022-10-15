@@ -5,7 +5,7 @@ import InlineVacancy from '../InlineVacancy/InlineVacancy.component'
 import { IProjectComponent } from './Project.model'
 import { Description, MoreVacanciesLinkDiv, ProjectContainer, TopContent, VacanciesContainer, MoreVacanciesLink } from './Project.style'
 
-const Project = ({ name, enterpriseName, description, id, vacancies }: IProjectComponent) => {
+const Project = ({ name, enterprise, description, id, vacancies }: IProjectComponent) => {
   const vacanciesList = vacancies.map((vacancy, index) => {
     if (index >= 3) {
       return null
@@ -22,7 +22,7 @@ const Project = ({ name, enterpriseName, description, id, vacancies }: IProjectC
               Veja mais
             </DefaultButton>
           </TopContent>
-            <TerciaryText>{enterpriseName}</TerciaryText>
+            <TerciaryText>{enterprise.name}</TerciaryText>
             <Description>{description}</Description>
             <VacanciesContainer>
               {vacanciesList}

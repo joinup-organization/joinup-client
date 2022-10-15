@@ -1,10 +1,11 @@
+import { IProjectEnterprise } from '../../model/enterprise.model'
 import { IGenericDatabase } from '../../model/generic.model'
 import { IProjectVacancy } from '../Vacancy/Vacancy.model'
 
 export interface IProjectComponent {
   readonly id: string
   readonly name: string
-  readonly enterpriseName: string
+  readonly enterprise: IProjectEnterprise
   readonly description: string
   readonly vacancies: IProjectVacancy[]
 }
