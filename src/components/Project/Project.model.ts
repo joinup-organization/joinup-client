@@ -2,6 +2,7 @@ import { IGenericDatabase } from '../../model/generic.model'
 import { IProjectVacancy } from '../Vacancy/Vacancy.model'
 
 export interface IProjectComponent {
+  readonly id: string
   readonly name: string
   readonly enterpriseName: string
   readonly description: string

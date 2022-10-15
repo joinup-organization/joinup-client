@@ -2,7 +2,7 @@ import styled, { createGlobalStyle } from 'styled-components'
 
 export const GlobalStyle = createGlobalStyle`
 * {
-    font-family: "Segoe UI", Arial, sans-serif;
+    font-family: 'SF Pro Display', sans-serif;
     margin: 0;
     padding: 0;
     color: black;
@@ -15,25 +15,27 @@ export const GlobalStyle = createGlobalStyle`
 `
 
 export const MainTitle = styled.h1`
-    font-size: 2rem;
+    font-size: 34px;
     font-weight: bold;
+    color: ${(props) => props.color ?? 'black'};
     margin: 0;
 `
 
 export const SubTitle = styled.h2`
-    font-size: 1.5rem;
-    font-weight: 600;
+    font-size: 28px;
+    font-weight: 500;
+    color: ${(props) => props.color ?? 'black'};
     margin: 0;
-
 `
 export const TerciaryText = styled.h3`
-    font-size: 1.2rem;
+    font-size: 22px;
     font-weight: 400;
-    color: #616161;
+    color: ${(props) => props.color ?? '#4A4A4A'};
     margin: 0;
 `
 
 export const Text = styled.p`
-    font-size: 1rem;
+    font-size: 17px;
     font-weight: 400;
+    color: ${(props) => props.color ?? 'black'};
 `

@@ -1,5 +1,14 @@
 import { Redirect, Route } from 'react-router-dom'
-import { IonApp, IonRouterOutlet, setupIonicReact } from '@ionic/react'
+import {
+  IonApp,
+  IonIcon,
+  IonLabel,
+  IonRouterOutlet,
+  IonTabBar,
+  IonTabButton,
+  IonTabs,
+  setupIonicReact
+} from '@ionic/react'
 import { IonReactRouter } from '@ionic/react-router'
 import React from 'react'
 
@@ -23,21 +32,43 @@ import '@ionic/react/css/display.css'
 import './theme/variables.css'
 import Home from './pages/Home/Home.page'
 import { GlobalStyle } from './global.style'
+import ProjectPage from './pages/Project/Project.page'
+import { homeOutline, mailOutline, personCircleOutline, clipboardOutline } from 'ionicons/icons'
 
 setupIonicReact()
 
 const App: React.FC = () => (
   <IonApp>
-    <GlobalStyle/>
+    <GlobalStyle />
     <IonReactRouter>
-      <IonRouterOutlet>
-        <Route exact path="/home">
-          <Home />
-        </Route>
-        <Route exact path="/">
-          <Redirect to="/home" />
-        </Route>
-      </IonRouterOutlet>
+      <IonTabs>
+        <IonRouterOutlet>
+          <Route exact path="/">
+            <Redirect to="/home" />
+          </Route>
+          <Route exact path="/home" component={Home} />
+          <Route exact path="/project/:id" component={ProjectPage} />
+        </IonRouterOutlet>
+
+        <IonTabBar slot="bottom">
+          <IonTabButton tab="tab1" href="/home">
+            <IonIcon icon={homeOutline} />
+            <IonLabel>Início</IonLabel>
+          </IonTabButton>
+          <IonTabButton tab="tab2" href="/tab2">
+            <IonIcon icon={clipboardOutline} />
+            <IonLabel>Projetos aplicados</IonLabel>
+          </IonTabButton>
+          <IonTabButton tab="tab3" href="/tab3">
+            <IonIcon icon={mailOutline} />
+            <IonLabel>Respostas</IonLabel>
+          </IonTabButton>
+          <IonTabButton tab="tab3" href="/tab4">
+            <IonIcon icon={personCircleOutline} />
+            <IonLabel>Minha conta</IonLabel>
+          </IonTabButton>
+        </IonTabBar>
+      </IonTabs>
     </IonReactRouter>
   </IonApp>
 )
