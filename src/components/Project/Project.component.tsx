@@ -1,6 +1,6 @@
 import React from 'react'
 import { SubTitle, TerciaryText } from '../../global.style'
-import { DefaultButton } from '../DefaultButton/DefaultButton.style'
+import { DefaultRoutingButton } from '../DefaultButton/DefaultButton.style'
 import InlineVacancy from '../InlineVacancy/InlineVacancy.component'
 import { IProjectComponent } from './Project.model'
 import { Description, MoreVacanciesLinkDiv, ProjectContainer, TopContent, VacanciesContainer, MoreVacanciesLink } from './Project.style'
@@ -18,9 +18,9 @@ const Project = ({ name, enterprise, description, id, vacancies }: IProjectCompo
         <ProjectContainer>
           <TopContent>
             <SubTitle>{name}</SubTitle>
-            <DefaultButton routerLink={`/project/${id}`}>
+            <DefaultRoutingButton routerLink={`/project/${id}`}>
               Veja mais
-            </DefaultButton>
+            </DefaultRoutingButton>
           </TopContent>
             <TerciaryText>{enterprise.name}</TerciaryText>
             <Description>{description}</Description>

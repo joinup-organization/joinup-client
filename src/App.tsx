@@ -1,16 +1,7 @@
-import { Redirect, Route } from 'react-router-dom'
-import {
-  IonApp,
-  IonIcon,
-  IonLabel,
-  IonRouterOutlet,
-  IonTabBar,
-  IonTabButton,
-  IonTabs,
-  setupIonicReact
-} from '@ionic/react'
+/* eslint-disable @typescript-eslint/strict-boolean-expressions */
+import { IonApp, setupIonicReact } from '@ionic/react'
 import { IonReactRouter } from '@ionic/react-router'
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 
 /* Core CSS required for Ionic components to work properly */
 import '@ionic/react/css/core.css'
@@ -30,47 +21,56 @@ import '@ionic/react/css/display.css'
 
 /* Theme variables */
 import './theme/variables.css'
-import Home from './pages/Home/Home.page'
 import { GlobalStyle } from './global.style'
-import ProjectPage from './pages/Project/Project.page'
-import { homeOutline, mailOutline, personCircleOutline, clipboardOutline } from 'ionicons/icons'
+import { Tabs } from './tabs/Tabs'
+import firebase from 'firebase'
+import { UserContext } from './User.context'
+import { AuthService } from './services/auth.service'
+import { environment } from './environment/environment'
 
 setupIonicReact()
 
-const App: React.FC = () => (
-  <IonApp>
-    <GlobalStyle />
-    <IonReactRouter>
-      <IonTabs>
-        <IonRouterOutlet>
-          <Route exact path="/">
-            <Redirect to="/home" />
-          </Route>
-          <Route exact path="/home" component={Home} />
-          <Route exact path="/project/:id" component={ProjectPage} />
-        </IonRouterOutlet>
+firebase.initializeApp(environment.firebase)
 
-        <IonTabBar slot="bottom">
-          <IonTabButton tab="tab1" href="/home">
-            <IonIcon icon={homeOutline} />
-            <IonLabel>Início</IonLabel>
-          </IonTabButton>
-          <IonTabButton tab="tab2" href="/tab2">
-            <IonIcon icon={clipboardOutline} />
-            <IonLabel>Projetos aplicados</IonLabel>
-          </IonTabButton>
-          <IonTabButton tab="tab3" href="/tab3">
-            <IonIcon icon={mailOutline} />
-            <IonLabel>Respostas</IonLabel>
-          </IonTabButton>
-          <IonTabButton tab="tab3" href="/tab4">
-            <IonIcon icon={personCircleOutline} />
-            <IonLabel>Minha conta</IonLabel>
-          </IonTabButton>
-        </IonTabBar>
-      </IonTabs>
-    </IonReactRouter>
-  </IonApp>
-)
+const App: React.FC = () => {
+  const [user, setUser] = useState<firebase.User | null>(null)
+
+  useEffect(() => {
+    const authService = new AuthService()
+
+    firebase.auth().onAuthStateChanged(async (user) => {
+      if (authService.isSignUp) {
+        authService.setAuthStateLogged(false)
+        return
+      }
+
+      if (user) {
+        const token = await user.getIdToken()
+        authService.setTokenInLocalStorage(token)
+        authService.setAuthStateLogged(true)
+      }
+
+      authService.setAuthStateLogged(false)
+    })
+
+    firebase.auth().onIdTokenChanged(async (user) => {
+      if (user) {
+        const token = await user.getIdToken()
+        return authService.setTokenInLocalStorage(token)
+      }
+    })
+  }, [])
+
+  return (
+        <IonApp>
+            <GlobalStyle />
+            <IonReactRouter>
+                <UserContext.Provider value={{ user, setUser }}>
+                    <Tabs />
+                </UserContext.Provider>
+            </IonReactRouter>
+        </IonApp>
+  )
+}
 
 export default App
