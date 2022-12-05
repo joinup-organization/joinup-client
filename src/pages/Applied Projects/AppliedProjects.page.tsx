@@ -5,6 +5,7 @@ import { getUserProjectEnroll } from '../../services/project.service'
 import { IAppliedProjectsComponent } from '../../components/AppliedProjects/AppliedProjects.model'
 import { AppliedProjectsContainer, Title, ProjectContainer } from './AppliedProjects.style'
 import Appliedproject from '../../components/AppliedProjects/AppliedProjects.component'
+import AnswersSkeleton from './AppliedProjects..skeleton'
 
 const AppliedProjects = () => {
   const [appliedProjects, setProjects] = useState<IAppliedProjectsComponent[]>([])
@@ -20,7 +21,7 @@ const AppliedProjects = () => {
     <AppliedProjectsContainer>
       <Title>Seus projetos</Title>
       <ProjectContainer>
-        { appliedProjects.length ? appliedProjects.map((project, index) => <Appliedproject {...project} key={index}/>) : <div>skeleton</div>}
+        { appliedProjects.length ? appliedProjects.map((project, index) => <Appliedproject {...project} key={index}/>) : <AnswersSkeleton />}
       </ProjectContainer>
     </AppliedProjectsContainer>
   )
