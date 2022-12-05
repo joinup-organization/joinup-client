@@ -4,6 +4,7 @@ import { clipboardOutline, homeOutline, mailOutline, personCircleOutline } from 
 import React, { useContext } from 'react'
 import { Route } from 'react-router'
 import { Answers } from '../pages/Answers/Answers.page'
+import AppliedProjects from '../pages/Applied Projects/AppliedProjects.page'
 import Home from '../pages/Home/Home.page'
 import { LoginPage } from '../pages/Login/Login.page'
 import ProjectPage from '../pages/Project/Project.page'
@@ -19,6 +20,7 @@ export const Tabs: React.FC = () => {
                 <Route exact path="/project/:id" component={ProjectPage} />
                 <Route exact path="/login" component={LoginPage} />
                 <Route exact path="/answers" component={Answers} />
+                <Route exact path="/applied-projects" component={AppliedProjects} />
             </IonRouterOutlet>
             {user
               ? <IonTabBar slot="bottom">
@@ -26,7 +28,7 @@ export const Tabs: React.FC = () => {
                     <IonIcon icon={homeOutline} />
                     <IonLabel>Início</IonLabel>
                 </IonTabButton>
-                <IonTabButton tab="tab2" href="/tab2">
+                <IonTabButton tab="tab2" href="/applied-projects">
                     <IonIcon icon={clipboardOutline} />
                     <IonLabel>Projetos aplicados</IonLabel>
                 </IonTabButton>
