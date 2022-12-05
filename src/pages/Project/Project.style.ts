@@ -32,3 +32,12 @@ export const BenefitsComponent = styled.div`
 export const BenefitIcon = styled(IonIcon)`
     font-size: 20px;
 `
+
+export const SkeletonContainer = styled.div`
+    margin-top: 20px;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    background-color: var(--page-background);
+`

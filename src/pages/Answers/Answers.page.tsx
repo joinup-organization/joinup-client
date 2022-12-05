@@ -7,6 +7,7 @@ import { IAnswer } from '../../model/answers.model'
 import { getAnswers } from '../../services/answers.service'
 import { AuthService } from '../../services/auth.service'
 import { AnswersContainer, AnswersList } from './Answers.style'
+import AnswersSkeleton from './Answers.skeleton'
 
 export const Answers = () => {
   const [answers, setAnswers] = useState<IAnswer[]>([])
@@ -24,7 +25,7 @@ export const Answers = () => {
         <AnswersContainer>
           <MainTitle>Respostas</MainTitle>
           <AnswersList>
-            {(answers.length > 0) ? answers.map((answer, key) => <AnswerLi {...answer} key={key}/>) : null}
+            {(answers.length > 0) ? answers.map((answer, key) => <AnswerLi {...answer} key={key}/>) : <AnswersSkeleton/>}
           </AnswersList>
         </AnswersContainer>
   )

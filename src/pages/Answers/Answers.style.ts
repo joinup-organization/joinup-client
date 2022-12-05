@@ -14,3 +14,10 @@ export const AnswersList = styled.div`
     flex-direction: column;
     gap: 10px;
 `
+
+export const SkeletonContainer = styled.div`
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+`

@@ -10,6 +10,7 @@ import { BenefitsComponent, ProjectContainer, ProjectSubTitle, ProjectTitle, Ben
 import { homeOutline, fastFoodOutline, busOutline } from 'ionicons/icons'
 import VacancyComponent from '../../components/Vacancy/Vacancy.component'
 import { EnterpriseInline } from '../../components/EnterpriseInline/EnterpriseInline.component'
+import ProjectSkeleton from './Project.skeleton'
 
 const ProjectPage: React.FC<RouteComponentProps<{id: string}>> = ({ match, history }) => {
   const [project, setProject] = useState<IProject | null>(null)
@@ -46,17 +47,10 @@ const ProjectPage: React.FC<RouteComponentProps<{id: string}>> = ({ match, histo
     </div>
   )
 
-  // TODO: Passar para componente
-  const pageSkeleton = (
-    <div>
-      skeleton
-    </div>
-  )
-
   return (
     <ProjectContainer>
         <HeaderNav title='Projeto' goBack={history.goBack}/>
-        {project ? projectPage : pageSkeleton}
+        {project ? projectPage : <ProjectSkeleton/>}
     </ProjectContainer>
   )
 }
