@@ -6,7 +6,7 @@ import { EnterpriseDiv, EnterpriseInlineContainer, EnterprisePhoto } from './Ent
 
 export const EnterpriseInline = ({ name, id, photo }: IProjectEnterprise) => {
   return (
-        <IonRouterLink routerLink={`enterprise/${id}`}>
+        <IonRouterLink>
             <EnterpriseInlineContainer>
                 <EnterpriseDiv>
                     <EnterprisePhoto src={photo} />

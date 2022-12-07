@@ -16,4 +16,5 @@ export const AppliedProjectsContainer = styled.div`
 export const ProjectContainer = styled.div`
     display: flex;
     flex-direction: column;
+    gap: 15px;
 `

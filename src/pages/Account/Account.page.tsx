@@ -18,7 +18,7 @@ const AccountPage = () => {
             <ItemList>
                 <AccountOption title="Alterar cadastro" link=''/>
                 <AccountOption title="Entrar" link='login'/>
-                <AccountOption title="Sair" link=''/>
+                <AccountOption title="Sair" link='login'/>
             </ItemList>
         </AccountContainer>
   )
