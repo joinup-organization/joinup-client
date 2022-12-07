@@ -8,6 +8,7 @@ export const EnterpriseInlineContainer = styled.div`
     display: flex;
     align-items: center;
     gap: 15px;
+    background: white;
 `
 
 export const EnterprisePhoto = styled.img`

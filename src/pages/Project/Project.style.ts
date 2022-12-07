@@ -41,3 +41,15 @@ export const SkeletonContainer = styled.div`
     flex-direction: column;
     background-color: var(--page-background);
 `
+
+export const LoaderContainer = styled.div`
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    background: none;
+    top: 0;
+    left: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+`

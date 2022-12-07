@@ -6,6 +6,7 @@ export const VacancyContainer = styled.div`
     border-radius: 15px;
     margin-bottom: 20px;
     box-shadow: 0px 0px 18px 0px rgba(0, 0, 0, 0.05);
+    background: white;
 `
 
 export const ContentContainer = styled.div`
