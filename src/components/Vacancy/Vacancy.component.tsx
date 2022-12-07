@@ -1,12 +1,13 @@
 import { IonIcon } from '@ionic/react'
 import React from 'react'
-import { EVacancyLevel, IVacancy } from './Vacancy.model'
-import { ApplyButton, ContentContainer, TitleContainer, VacancyContainer, VacancyDescription, VacancyLevel, VacancyNeeds, VacancyTitle } from './Vacancy.style'
+import { EVacancyLevel, IPersonalizedVacancy } from './Vacancy.model'
+import { ContentContainer, TitleContainer, VacancyContainer, VacancyDescription, VacancyLevel, VacancyNeeds, VacancyTitle } from './Vacancy.style'
 import { timeOutline, schoolOutline, walletOutline } from 'ionicons/icons'
 import { Text } from '../../global.style'
 import { vacancyColor } from '../../util/Vacancy.util'
+import PopupApplyProject from '../PopupApplyProject/PopupApplyProject.component'
 
-const VacancyComponent = ({ name, level, description, experienceYears, salaryRange, higherEducation, type }: IVacancy) => {
+const VacancyComponent = ({ name, level, description, experienceYears, salaryRange, higherEducation, type, id, projectId, notify, setIsLoading }: IPersonalizedVacancy) => {
   const levelColor = () => {
     const color = {
       [EVacancyLevel.intern]: '#e4e4e4',
@@ -39,7 +40,7 @@ const VacancyComponent = ({ name, level, description, experienceYears, salaryRan
                 {inlineVacancyNeeds(higherEducation ? 'Superior completo' : 'Não é necessário', schoolOutline)}
                 {inlineVacancyNeeds(`Faixa salarial: R$ ${salaryRange.min} - R$ ${salaryRange.max}`, walletOutline)}
             </ContentContainer>
-            <ApplyButton color={vacancyColor(type)}>Aplicar</ApplyButton>
+            <PopupApplyProject color={vacancyColor(type)} id={id} projectId={projectId} notify={notify} setIsLoading={setIsLoading}/>
         </VacancyContainer>
   )
 }

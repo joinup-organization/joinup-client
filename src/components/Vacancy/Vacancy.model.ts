@@ -13,6 +13,11 @@ export interface IProjectVacancy {
   }
 }
 
+export interface IPersonalizedVacancy extends IVacancy {
+  notify: any
+  setIsLoading: any
+}
+
 export interface IVacancy extends IProjectVacancy {
   readonly projectId: string
 }
